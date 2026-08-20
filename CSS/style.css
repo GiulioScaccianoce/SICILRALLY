@@ -232,15 +232,10 @@ button:focus-visible {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 
-.autore:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
 
 
 
@@ -421,6 +416,7 @@ gap:25px;
   width: 100%;
   padding: 0 44px 72px;
   min-height: calc(var(--card-img-h) + var(--panel-h) + 24px);
+  overflow: hidden;
 }
 .carousel::after {
   content: "";
@@ -721,9 +717,9 @@ gap:25px;
 /* CARD */
 
 .approfondimento-card {
-
-    max-width: 1000px;
-    margin:  auto 25%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
     display: flex;
     gap: 3rem;
     align-items: center;
@@ -1010,4 +1006,37 @@ opacity: 60%;
 
     transform:translateY(-8px);
 
+}
+
+/* Layout del carosello con quattro carte visibili */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+  overflow: visible;
+  margin: 0 auto;
+}
+
+.carousel-page {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  display: contents;
+}
+
+.event-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+}
+
+@media (max-width: 900px) {
+  .event-card {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .event-card {
+    flex-basis: 100%;
+  }
 }
